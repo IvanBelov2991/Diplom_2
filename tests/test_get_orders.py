@@ -28,7 +28,7 @@ class TestCreateOrder:
     @allure.description("Проверка получения заказов без создания пользователя,"
                         " проверка кода, ожидание неуспешного ответа")
     def test_cannot_get_orders_without_auth(self, default_user_without_auth):
-        user_response, _, _, _, = default_user_without_auth
+        user_response, email, password, name = default_user_without_auth
         user_token_creation = user_response.json()["accessToken"]
         get_order_response = StellarburgersApi.get_order(user_token_creation)
 

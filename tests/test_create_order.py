@@ -54,6 +54,6 @@ class TestCreateOrder:
         create_order_response = StellarburgersApi.create_order(data.fake_ingredient)
 
         assert create_order_response.status_code == 500
-        # баг, по документации должна возвращаться ошибка 500 (сейчас возвразается 400)
+        # баг, по документации должна возвращаться ошибка 500 (сейчас возвращается 400)
         assert create_order_response.json()["success"] == False
         assert create_order_response.json()["message"] == "One or more ids provided are incorrect"
